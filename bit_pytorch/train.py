@@ -277,6 +277,20 @@ def main(args):
     # Final eval at end of training.
     run_eval(model, valid_loader, device, chrono, logger, step='end')
 
+
+  val_tx = tv.transforms.Compose([
+      tv.transforms.Resize((crop, crop)),
+      tv.transforms.ToTensor(),
+      tv.transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+  ])
+  test_set = tv.datasets.ImageFolder(pjoin(args.datadir, "testing"), val_tx)
+  print("Testing:")
+  micro_batch_size = args.batch // args.batch_split
+  test_loader = torch.utils.data.DataLoader(
+      test_set, batch_size=micro_batch_size, shuffle=False,
+      num_workers=args.workers, pin_memory=True, drop_last=False)
+  run_eval(model, test_loader, device, chrono, logger, step='end')
+
   logger.info(f"Timings:\n{chrono}")
 
 
