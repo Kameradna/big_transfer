@@ -24,6 +24,7 @@ known_dataset_sizes = {
   'oxford_iiit_pet': (224, 224),
   'oxford_flowers102': (224, 224),
   'imagenet2012': (224, 224),
+  'hep2': (78, 78)
 }
 
 
