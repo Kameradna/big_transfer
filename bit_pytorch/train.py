@@ -283,7 +283,7 @@ def main(args):
       tv.transforms.ToTensor(),
       tv.transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
   ])
-  test_set = tv.datasets.ImageFolder(pjoin(args.datadir, "testing"), val_tx)
+  test_set = tv.datasets.ImageFolder(pjoin(args.datadir, "test"), val_tx)
   print("Testing:")
   micro_batch_size = args.batch // args.batch_split
   test_loader = torch.utils.data.DataLoader(
