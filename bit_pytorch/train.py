@@ -277,7 +277,7 @@ def main(args):
     # Final eval at end of training.
     run_eval(model, valid_loader, device, chrono, logger, step='end')
 
-
+  precrop, crop = bit_hyperrule.get_resolution_from_dataset(args.dataset)
   val_tx = tv.transforms.Compose([
       tv.transforms.Resize((crop, crop)),
       tv.transforms.ToTensor(),
