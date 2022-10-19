@@ -1,3 +1,29 @@
+Same as Big Transfer but with edits for Hep2
+
+Just clone it, get in the folder and run 
+
+```shell
+gdown https://drive.google.com/file/d/1reoKyZ3SwNDcZlNmT_031VgvQSI4dkhU/view?usp=sharing --fuzzy
+unzip "Three Datasets for Training, Validation and Test.zip" -d data
+unzip data/test.zip -d data
+unzip data/training.zip -d data
+unzip data/validation.zip -d data
+gdown https://drive.google.com/file/d/1yzqHghT9M0G4BHhz_gDTB0Ml7DXPM3BF/view?usp=sharing --fuzzy -O data/data.csv
+rm -v "Three Datasets for Training, Validation and Test.zip" data/test.zip data/training.zip data/validation.zip
+```
+and then 
+```shell
+python data_format.py
+```
+Then run however you want, I do
+```shell
+python -m bit_pytorch.train --name hep2_attempt_`date +%F_%H%M%S` --model BiT-M-R50x1 --logdir /tmp/bit_logs --dataset hep2  --datadir ../R2Gen-fulltrans/elec5622project2/data
+```
+And I have all the stuff installed via conda, you may have to work that out with the tips below.
+
+Kind regards,
+Kameradna
+
 ## Big Transfer (BiT): General Visual Representation Learning
 *by Alexander Kolesnikov, Lucas Beyer, Xiaohua Zhai, Joan Puigcerver, Jessica Yung, Sylvain Gelly, Neil Houlsby*
 
