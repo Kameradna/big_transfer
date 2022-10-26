@@ -1,3 +1,6 @@
+## My fork that includes the hep2 dataset
+
+
 ## Big Transfer (BiT): General Visual Representation Learning
 *by Alexander Kolesnikov, Lucas Beyer, Xiaohua Zhai, Joan Puigcerver, Jessica Yung, Sylvain Gelly, Neil Houlsby*
 
